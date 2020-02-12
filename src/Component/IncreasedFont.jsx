@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class IncreasedFont extends Component {
   state = {
-    text: "HI",
+    text: "Hi",
     fontStrength: 40
   };
   textLookUp() {
@@ -23,10 +23,15 @@ class IncreasedFont extends Component {
     );
   }
   handleFontIncrement(some_digit) {
-    this.setState({ fontStrength: this.state.fontStrength + some_digit });
+      if (this.state.text.length === 0) {
+        //   pass
+      } else {
+          this.setState({ fontStrength: this.state.fontStrength + some_digit });
+      }
+      
   }
   handleResetEvent() {
-    this.setState({ fontStrength: 30 });
+    this.setState({ fontStrength: 40 });
   }
   render() {
     return (
