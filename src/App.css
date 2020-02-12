@@ -3,16 +3,34 @@ div.grid_container{
   max-width: 100%;
   max-height: 100%;
   display:grid;
-  grid-template-columns: auto auto;
+  grid-template-areas:"text output"
+                      "text output2"
+                      "none output3";
   column-gap: 10px;
   grid-row-gap: 10px;
 }
+div.filler{
+  grid-area: none;
+
+}
+div.grid_content_1{
+  grid-area : text;
+}
+div.grid_content{
+  grid-area: output;
+}
+div.grid_content_2{
+  grid-area: output2;
+}
+div.grid_content_3{
+  grid-area: output3;
+}
 .App-logo {
   position: absolute;
-  top:90%;  
-  height: 10vmin;
+  top:80%;  
+  height: 20vmin;
   pointer-events: none;
-  /* z-index : 200; */
+  z-index : 200;
 }
 
 @media (prefers-reduced-motion: no-preference) {

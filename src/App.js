@@ -89,18 +89,20 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <img src={logo} className="App-logo" alt="logo" />
         <div className="grid_container">
-          <div className="grid_content">
+          <div className="grid_content_1">
+            <img src={logo} className="App-logo" alt="logo" />
             <TextInput update={this.updateString()} />
           </div>
+          <div className="filler"></div>
+
           <div className="grid_content">
             <BackwardsText setTextBackwards={this.getTextBackWards()} />
           </div>
-          <div className="grid_content">
+          <div className="grid_content_2">
             <AllCaps setAllCap={this.getAllCap()} />
           </div>
-          <div className="grid_content">
+          <div className="grid_content_3">
             <IncreasedFont
               setLargerFont={this.textLookUp()}
               increaseFontSize={this.handleFontIncrementEvent}
