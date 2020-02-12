@@ -1,0 +1,72 @@
+.div{
+    height: 50vh;
+    width: 50vw;
+    max-width:50vw;
+    max-height: 50vh;
+    position: realtive;
+    /* background-color: ivory; */
+    border-radius: 20px;
+    background: linear-gradient(0deg, blue, pink),
+        linear-gradient(0deg, grey, red);
+}
+.div p{
+    margin: 0;
+    position: relative;;
+    top: 10%;
+    left: 50%;
+    max-height : inherit;
+    max-width: inherit;
+    word-wrap: break-word;
+    transform: translate(-50%,50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border: solid $b transparent;
+    padding: $p;
+    text-indent : 1em;
+}
+.divInput{
+    height: 50vh;
+    width: 50vw;
+    position: relative;
+    border: 2px;
+    border-radius: 20px;
+
+    /* z-index:10; */
+}
+.textInput{
+    height: 50vh;
+    width: 50vw;
+    border-radius: 5px;    
+}
+.resetButton{
+    position:absolute;
+    left:70%;
+    border-radius: 50%;
+    /* z-index:20; */
+}
+.resetAnim{
+    position:relative;    
+    pointer-events: none;
+    border-radius: 50%;
+    animation-name: reset-button-spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+.increaseFontButton{
+    position: absolute;
+    left:75%;
+    border-radius: 50%;
+    /* z-index:20; */
+}
+
+@keyframes reset-button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

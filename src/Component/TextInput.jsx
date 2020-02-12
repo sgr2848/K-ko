@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-
+import classes from "./css/Divs.module.css";
 
 class TextInput extends Component{
     render(){
-        return (
-            <div>
-                {/* <span style={this.style} className={this.getBadgeClasses()} >{this.formatCount()}</span>
-                <button className="btn btn-secondary btn-sm">Increment</button>        */}
-                {this.props.update}
-              
-            </div>);
+        return <div className={classes.divInput}>{this.props.update}</div>;
     }
-
 }
 export default TextInput;
