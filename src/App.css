@@ -9,11 +9,10 @@ div.grid_container{
 }
 .App-logo {
   position: absolute;
-  top:42%;
-  left: 43.5%;
-  height: 20vmin;
+  top:90%;  
+  height: 10vmin;
   pointer-events: none;
-  z-index : 200;
+  /* z-index : 200; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
