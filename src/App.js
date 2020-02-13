@@ -6,7 +6,9 @@ import TextInput from "./Component/TextInput";
 import AllCaps from "./Component/AllCaps";
 import IncreasedFont from "./Component/IncreasedFont";
 import BackwardsText from "./Component/BackwardsText";
+import Cipher from "./Cipher.js";
 import "bootstrap/dist/css/bootstrap.css";
+import cipher from "./Cipher.js";
 
 class App extends Component {
   state = {
@@ -31,17 +33,16 @@ class App extends Component {
   }
   getTextBackWards() {
     if (this.state.some_text.length === 0) {
-      return (
-        <p >Nothing there Bud! </p>
-      );
+      return <p>Nothing there Bud!</p>;
     } else {
       return (
-        <p  style={this.style}>
+        <p >
           {[...this.state.some_text].reverse().join("")}
         </p>
       );
     }
   }
+  // 
   textLookUp() {
     if (this.state.some_text.length === 0)
       return (
@@ -59,6 +60,18 @@ class App extends Component {
         {this.state.some_text}
       </p>
     );
+  }
+  getCipher() {
+    if (this.state.some_text.length === 0) {
+      return <p>Nothing there Bud! </p>;
+    } else {
+      return (
+        <p >
+          {cipher.rot_13(this.state.some_text)}
+        </p>
+      );
+    }
+    
   }
   handleFontIncrementEvent = () => {
     if (this.state.some_text.length === 0) {
@@ -97,7 +110,10 @@ class App extends Component {
           <div className="filler"></div>
 
           <div className="grid_content">
-            <BackwardsText setTextBackwards={this.getTextBackWards()} />
+            <BackwardsText
+              rot_13 = {this.getCipher()}
+              Backwards={this.getTextBackWards()}
+            />
           </div>
           <div className="grid_content_2">
             <AllCaps setAllCap={this.getAllCap()} />
