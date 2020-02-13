@@ -20,14 +20,10 @@ class App extends Component {
   };
   getAllCap() {
     if (this.state.some_text.length === 0) {
-      return (
-        <p >Nothing there Bud! </p>
-      );
+      return <p>Nothing there Bud! </p>;
     } else {
       return (
-        <p  style={this.style}>
-          {this.state.some_text.toLocaleUpperCase()}
-        </p>
+        <p style={this.style}>{this.state.some_text.toLocaleUpperCase()}</p>
       );
     }
   }
@@ -35,44 +31,34 @@ class App extends Component {
     if (this.state.some_text.length === 0) {
       return <p>Nothing there Bud!</p>;
     } else {
+      return <p>{[...this.state.some_text].reverse().join("")}</p>;
+    }
+  }
+  //
+  MakeLargeFont() {
+    if (this.state.some_text.length === 0) return <p>Nothing there Bud! </p>;
+    else {
       return (
-        <p >
-          {[...this.state.some_text].reverse().join("")}
+        <p style={{ fontSize: this.state.fontStrength }}>
+          {this.state.some_text}
         </p>
       );
     }
   }
-  // 
-  textLookUp() {
-    if (this.state.some_text.length === 0)
-      return (
-        <p >Nothing there Bud! </p>
-      );
-    else {
-      return this.displayLargerText();
-    }
-  }
-  displayLargerText() {
-    return (
-      <p        
-        style={{ fontSize: this.state.fontStrength }}
-      >
-        {this.state.some_text}
-      </p>
-    );
-  }
+
   getCipher() {
     if (this.state.some_text.length === 0) {
       return <p>Nothing there Bud! </p>;
     } else {
-      return (
-        <p >
-          {cipher.rot_13(this.state.some_text)}
-        </p>
-      );
+      return <p>{cipher.rot_13(this.state.some_text)}</p>;
     }
-    
   }
+
+  handleValueChange = value => {
+    this.setState({
+      some_text: value
+    });
+  };
   handleFontIncrementEvent = () => {
     if (this.state.some_text.length === 0) {
       //   pass
@@ -82,11 +68,6 @@ class App extends Component {
   };
   handleResetEvent = () => {
     this.setState({ fontStrength: 40 });
-  };
-  handleValueChange = value => {
-    this.setState({
-      some_text: value
-    });
   };
   updateString() {
     return (
@@ -111,7 +92,7 @@ class App extends Component {
 
           <div className="grid_content">
             <BackwardsText
-              rot_13 = {this.getCipher()}
+              rot_13={this.getCipher()}
               Backwards={this.getTextBackWards()}
             />
           </div>
@@ -120,7 +101,7 @@ class App extends Component {
           </div>
           <div className="grid_content_3">
             <IncreasedFont
-              setLargerFont={this.textLookUp()}
+              setLargerFont={this.MakeLargeFont()}
               increaseFontSize={this.handleFontIncrementEvent}
               resetFontSize={this.handleResetEvent}
             />
